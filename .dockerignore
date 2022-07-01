@@ -1,0 +1,10 @@
+Dockerfile
+.gitignore
+README.md
+.dockerignore
+.github
+*.log
+*.env
+.env.local
+.env.production
+venv

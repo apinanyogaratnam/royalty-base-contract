@@ -14,7 +14,7 @@ contract RoyaltyBaseContract {
         balances[msg.sender] -= amount;
     }
 
-    function getRoyaltyFee() public view returns (uint) {
-        return 0;
+    function getRoyaltyFee(uint amount) pure public returns (uint) {
+        return (amount * 10) / 100;
     }
 }

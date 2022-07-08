@@ -13,4 +13,8 @@ contract RoyaltyBaseContract {
     function withdraw(uint amount) public {
         balances[msg.sender] -= amount;
     }
+
+    function getRoyaltyFee() public view returns (uint) {
+        return 0;
+    }
 }

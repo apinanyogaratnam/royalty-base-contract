@@ -7,7 +7,11 @@ contract RoyaltyBaseContract {
     constructor() {}
 
     function deposit() payable public {
-        balances[msg.sender] += msg.value;
+        address depositor = msg.sender;
+        uint depositAmount = msg.value;
+        uint royalteFee = getRoyaltyFee(depositAmount);
+
+        balances[depositor] += depositAmount - royalteFee;
     }
 
     function withdraw(uint amount) public {

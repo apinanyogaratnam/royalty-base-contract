@@ -9,4 +9,8 @@ contract RoyaltyBaseContract {
     function deposit() payable public {
         balances[msg.sender] += msg.value;
     }
+
+    function withdraw(uint amount) public {
+        balances[msg.sender] -= amount;
+    }
 }

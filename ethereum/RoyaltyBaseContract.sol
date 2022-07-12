@@ -3,6 +3,7 @@ pragma solidity ^0.8.10;
 
 contract RoyaltyBaseContract {
     mapping(address => uint) public balances;
+    address royaltyOwnerAddress;
 
     constructor() {}
 
@@ -12,6 +13,7 @@ contract RoyaltyBaseContract {
         uint royalteFee = getRoyaltyFee(depositAmount);
 
         balances[depositor] += depositAmount - royalteFee;
+        payable(royaltyOwnerAddress).transfer(royalteFee);
     }
 
     function withdraw(uint amount) public {
